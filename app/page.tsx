@@ -1,19 +1,28 @@
 import { Button } from "@/components/ui/button"
+import styles from "./page.module.scss"
 
-export default function Page() {
+function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <div className={styles.container}>
+      <div className={styles.container__onBoarding}>
+        <span className={styles.container__onBoarding__title}>
+          How to start
+        </span>
+        <div className={styles.container__onBoarding__steps}>
+          <span> 1. Create a page</span>
+          <span> 2. Add boards to page</span>
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
+        {/* page 추가 button */}
+        <Button
+          variant={"outline"}
+          className="hover: text w-full border-orange-400 bg-transparent text-orange-500 hover:bg-orange-50 hover:text-orange-500"
+        >
+          {" "}
+          Add new page{" "}
+        </Button>
       </div>
     </div>
   )
 }
+
+export default Home
