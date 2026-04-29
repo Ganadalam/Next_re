@@ -25,7 +25,7 @@ function BasicBoard() {
           <LabelCalendar label="To" />
         </div>
         <div className={styles.container__body__buttoonBox}>
-          <Button
+          {/* <Button
             variant={"ghost"}
             className="font-normal text-gray-400 hover:bg-green-50 hover:text-green-500"
           >
@@ -36,7 +36,7 @@ function BasicBoard() {
             className="font-normal text-gray-400 hover:bg-red-50 hover:text-red-500"
           >
             Delete
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className={styles.container__footer}>
