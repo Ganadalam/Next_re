@@ -31,7 +31,7 @@ function MarkdownDialog() {
           Add Contents
         </span>
       </DialogTrigger>
-      <DialogContent className="max-w-fit">
+      <DialogContent className="sm:max-w-[850px] w-[95vw] overflow-hidden p-6">
         <DialogHeader>
           <DialogTitle>
             <div className={styles.dialog__titleBox}>

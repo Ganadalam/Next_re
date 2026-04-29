@@ -1,20 +1,30 @@
 .dialog {
+  // 모든 직계 자식 컨테이너들이 부모 너비를 넘지 못하도록 설정
+  &__titleBox,
+  &__calendarBox,
+  &__markdown,
+  &__buttonBox {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   &__titleBox {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
-    width: 45vw;
-
-    gap: 8px;
+    gap: 12px; // 간격을 조금 더 여유있게 조정
+    padding-bottom: 8px;
 
     &__title {
-      width: 100%;
+      flex: 1; // 체크박스 제외한 나머지 공간 다 차지
+      min-width: 0; // flex 아이템 가출 방지 핵심
 
       outline: none;
       border: none;
+      background: transparent;
 
-      font-weight: 500;
+      font-weight: 600;
       font-size: 24px;
       color: #303030;
 
@@ -24,27 +34,94 @@
       }
     }
   }
+
   &__calendarBox {
     display: flex;
     align-items: center;
-
-    width: 45vw;
-
     gap: 16px;
-    padding-top: 16px;
+    padding: 16px 0;
+
+    // 모바일 등 좁은 화면 대응을 위해 flex-wrap 고려 가능
+    flex-wrap: wrap;
   }
+
   &__markdown {
-    width: 45vw;
-    height: 50vh;
+    margin-top: 16px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb; // 에디터 경계 명확화
+
+    :global(.w-md-editor) {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      box-shadow: none !important; // 기본 그림자 제거해서 깔끔하게
+    }
+
+    // 에디터 내부 툴바가 좁아질 때 가로 스크롤 생기는 것 방지
+    :global(.w-md-editor-toolbar) {
+      flex-wrap: wrap;
+      height: auto !important;
+    }
   }
+
   &__buttonBox {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    width: 45vw;
-
-    gap: 16px;
-    padding-top: 12px;
+    gap: 12px;
+    padding-top: 20px;
   }
 }
+// .dialog {
+//   &__titleBox {
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-start;
+
+//     width: 45vw;
+
+//     gap: 8px;
+
+//     &__title {
+//       width: 100%;
+
+//       outline: none;
+//       border: none;
+
+//       font-weight: 500;
+//       font-size: 24px;
+//       color: #303030;
+
+//       &::placeholder {
+//         font-weight: 500;
+//         color: #bdbdbd;
+//       }
+//     }
+//   }
+//   &__calendarBox {
+//     display: flex;
+//     align-items: center;
+
+//     width: 45vw;
+
+//     gap: 16px;
+//     padding-top: 16px;
+//   }
+//   &__markdown {
+//     width: 45vw;
+//     height: 50vh;
+//   }
+//   &__buttonBox {
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+
+//     width: 45vw;
+
+//     gap: 16px;
+//     padding-top: 12px;
+//   }
+// }
