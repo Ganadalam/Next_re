@@ -43,12 +43,12 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        
+
         gap: 16px;
         margin: 8px 0 16px 0;
 
         &__status {
-         color: #6d6d6d;
+          color: #6d6d6d;
         }
       }
 
@@ -68,7 +68,7 @@
   }
   &__body {
     display: flex;
-    align-items: center;
+    align-items: flex-start; // 추후 수정
     justify-content: center;
 
     width: 100%;
