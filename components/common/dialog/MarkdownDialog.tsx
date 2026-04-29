@@ -1,3 +1,8 @@
+"use client";
+//components
+import LabelCalendar from "../calendar/LabelCalendar";
+import MDEditor from "@uiw/react-md-editor";
+//Shadcn UI
 import {
   Dialog,
   DialogClose,
@@ -8,25 +13,25 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-// import { Button } from "@/components/ui/button";
-import styles from "./MarkdownDialog.module.scss";
-import { Checkbox } from "@/components/ui/checkbox";
-import LabelCalendar from "../calendar/LabelCalendar";
-import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Checkbox } from "@/components/ui/checkbox";
+// import { Button } from "@/components/ui/button";
+
+//CSS
+import styles from "./MarkdownDialog.module.scss";
+import { useState } from "react";
 
 function MarkdownDialog() {
+  const [contents, setContents] = useState<string | undefined>("**hihih**");
   return (
     <Dialog>
-      <DialogTrigger>
-        {/* <Button className="font-normal text-gray-400 hover:text-gray-500">
-          Add Contents
-        </Button> */}
+      <DialogTrigger asChild>
         <span className="font-normal text-gray-400 hover:text-gray-500">
           Add Contents
         </span>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-fit">
         <DialogHeader>
           <DialogTitle>
             <div className={styles.dialog__titleBox}>
@@ -48,7 +53,13 @@ function MarkdownDialog() {
             <LabelCalendar label="To" />
           </div>
           <Separator />
-          <div className={styles.dialog__markdown}></div>
+          <div className={styles.dialog__markdown}>
+            <MDEditor
+              value={contents}
+              height={100 + "%"}
+              onChange={setContents}
+            />
+          </div>
         </DialogHeader>
         <DialogFooter>
           <div className={styles.dialog__buttonBox}>
@@ -64,7 +75,7 @@ function MarkdownDialog() {
               type={"submit"}
               className="font-normal border-orange-500 bg-orange-400 text-white hover:bg-orange-400 hover:text-white"
             >
-              Cancel
+              Done
             </Button>
           </div>
         </DialogFooter>
