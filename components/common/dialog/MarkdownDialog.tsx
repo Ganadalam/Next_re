@@ -27,6 +27,7 @@ import { toast } from "sonner";
 import styles from "./MarkdownDialog.module.scss";
 
 function MarkdownDialog() {
+  const [open, setOpen] = useState<boolean>(false);
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string | undefined>("**hihih**");
 
@@ -60,12 +61,13 @@ function MarkdownDialog() {
       toast.success("생성 완료!", {
         description: "작성한 글이 Supabase에 올바르게 저장되었습니다.",
       });
-      // 성공 시 입력창 초기화 등의 로직을 여기에 추가할 수 있습니다.
+      //등록 후 조건 초기화
+      setOpen(false);
     }
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <span className="cursor-pointer font-normal text-gray-400 hover:text-gray-500">
           Add Contents

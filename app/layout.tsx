@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
 //components
-import SideNavation from "@/components/common/navigation/SideNavation";
+import SideNavation from "@/components/common/navigation/SideNavigation";
 //Shadcn UI
 import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
