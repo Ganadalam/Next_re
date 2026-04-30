@@ -10,6 +10,12 @@ To add components to your app, run the following command:
 npx shadcn@latest add button
 ```
 
+실행
+
+```bash
+npm run dev
+```
+
 This will place the ui components in the `components` directory.
 
 ## Using components

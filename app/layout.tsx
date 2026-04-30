@@ -1,10 +1,12 @@
-import type { Metadata } from "next"
-import { Roboto } from "next/font/google"
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
 
-import "@/styles/globals.css"
-import SideNavation from "@/components/common/navigation/SideNavation"
-
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] })
+//components
+import SideNavation from "@/components/common/navigation/SideNavation";
+//Shadcn UI
+import { Toaster } from "@/components/ui/sonner";
+import "@/styles/globals.css";
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
   title: "Shadcn UI - Todoboard",
@@ -16,11 +18,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return  (
-  <html lang="en">
-    <body className={roboto.className}>
-      <SideNavation />
-      {children}</body>
-  </html>
+  return (
+    <html lang="en">
+      <body className={roboto.className}>
+        <SideNavation />
+        {children}
+        <Toaster />
+      </body>
+    </html>
   );
 }
